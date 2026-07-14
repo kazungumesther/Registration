@@ -1,21 +1,8 @@
-rom pydantic import BaseModel, EmailStr
+from pydantic import BaseModel
 
-
-class StudentBase(BaseModel):
-   name: str
-   age: int
-   email: EmailStr
-   country: str
-   idnumber: int
-
-
-class StudentCreate(StudentBase):
-   pass
-
-
-class StudentResponse(StudentBase):
-   id: int
-
-
-   class Config:
-       from_attributes = True
+class Student(BaseModel):
+    name: str
+    age: int
+    email: str
+    country: str
+    id_number: int

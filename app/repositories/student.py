@@ -1,36 +1,27 @@
-from app.database import get_connection
-
-def add_student(name: str, age: int, email: str, country: str, idnumber: int):
-   with get_connection() as conn:
-       conn.execute(
-           "INSERT INTO students (name, age, email, country, idnumber) VALUES (?, ?, ?, ?, ?)",
-           (name, age, email, country, idnumber),
-       )
 
 
-def get_all_students():
-   with get_connection() as conn:
-       cursor = conn.execute("SELECT * FROM students")
-       return [dict(row) for row in cursor.fetchall()]
+from database import get_connection
 
 
-def get_student_by_id(student_id: int):
-   with get_connection() as conn:
-       cursor = conn.execute("SELECT * FROM students WHERE id = ?", (student_id,))
-       row = cursor.fetchone()
-       return dict(row) if row else None
+def add_student(name, age, email, country, id_number):
+    with get_connection() as connection:
+        connection.execute(
+            'INSERT INTO students (name, age, email, country, id_number) VALUES(?,?,?,?,?)',
+            (name, age, email, country, id_number)
+        )
 
+def get_students():
+    with get_connection() as connection:
+        return connection.execute('SELECT * FROM students').fetchall()
 
-def update_student(student_id: int, name: str, age: int, email: str, country: str, idnumber: int):
-   with get_connection() as conn:
-       conn.execute(
-           "UPDATE students SET name=?, age=?, email=?, country=?, idnumber=? WHERE id=?",
-           (name, age, email, country, idnumber, student_id),
-       )
+def update_student(id, name, age, email, country, id_number):
+    with get_connection() as connection:
+        connection.execute(
+            'UPDATE students SET name=?, age=?, email=?, country=?, id_number=? WHERE id=?',
+            (name, age, email, country, id_number, id)
+        )
 
-
-def delete_student(student_id: int):
-   with get_connection() as conn:
-       conn.execute("DELETE FROM students WHERE id = ?", (student_id,))
-
+def delete_student(id):
+    with get_connection() as connection:
+        connection.execute('DELETE FROM students WHERE id = ?', (id,))
 

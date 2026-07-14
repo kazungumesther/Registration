@@ -1,24 +1,9 @@
-from pydantic import BaseModel, EmailStr
 
+from pydantic import BaseModel
 
-class TeacherBase(BaseModel):
-   name: str
-   email: EmailStr
-   department: str
-   phone: str
-   employee_number: int
-
-
-class TeacherCreate(TeacherBase):
-   pass
-
-
-class TeacherResponse(TeacherBase):
-   id: int
-
-
-   class Config:
-       from_attributes = True
-
-
-
+class Teacher(BaseModel):
+    name: str
+    age: int
+    email: str
+    country: str
+    id_number: int
