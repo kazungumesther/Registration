@@ -1,4 +1,4 @@
-# School Registration System (
+# School Registration System 
 
 A backend application built with **FastAPI** to manage a school registration system. This project has been refactored from a simple CRUD setup into a clean, **layered architecture** to ensure separation of concerns, scalability, and ease of maintainability.
 
