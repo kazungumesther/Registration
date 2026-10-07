@@ -1,6 +1,6 @@
-# School Registration System (Refactor)
+# School Registration System (
 
-A robust and modular backend application built with **FastAPI** to manage a school registration system. This project has been refactored from a simple CRUD setup into a clean, **layered architecture** to ensure separation of concerns, scalability, and ease of maintainability.
+A backend application built with **FastAPI** to manage a school registration system. This project has been refactored from a simple CRUD setup into a clean, **layered architecture** to ensure separation of concerns, scalability, and ease of maintainability.
 
 ## Project Description
 This backend project handles full CRUD (Create, Read, Update, Delete) operations for managing core school entities, including **Students**, **Teachers**, and **Courses**. 
